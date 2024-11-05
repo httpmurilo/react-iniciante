@@ -1,0 +1,9 @@
+.banner {
+    background-color: #6278f7;
+    /*centralizado*/
+    text-align: center;
+}
+/*responsivo*/
+.banner img {
+    max-width: 100%;
+}
