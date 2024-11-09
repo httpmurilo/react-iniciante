@@ -1,8 +1,19 @@
 import './Formulario.css'
-import CampoTexto from './componentes/CampoTexto';
+import CampoTexto from '../CampoTexto'
+import ListaSuspensa from '../ListaSuspensa'
 
 
 const formulario = () =>{
+
+    const times = [
+        'Programação',
+        'Front-End',
+        'Data Science',
+        'Devops',
+        'UX e Design',
+        'Mobile',
+        'Inovação e Gestão'
+    ]
 
     return (
        <section className="formulario">
@@ -11,10 +22,11 @@ const formulario = () =>{
         <CampoTexto label="Nome" placeholder="Digite o seu nome"/>
         <CampoTexto label="Cargo" placeholder="Digite o seu cargo"/>
         <CampoTexto label="Imagem" placeholder="Digite o endereço da imagem"/>
+        <ListaSuspensa label="Time" itens={times}/>
         </form>
        </section>
     )
 
 }
 
-export default Formulario
+export default formulario
