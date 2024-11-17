@@ -5,26 +5,28 @@ import Botao from '../Botao'
 import { useState } from 'react'
 
 
-const formulario = (props) =>{
+const Formulario = (props) =>{
 
    
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
-    const [imagem, setImage] = useState('')
+    const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
-        console.log('Form foi submetido')
         props.aoColaboradorCadastrado({
             nome,
             cargo,
             imagem,
             time
         })
-
-
+        setNome('')
+        setCargo('')
+        setImagem('')
+        setTime('')
     }
+
     return (
        <section className="formulario">
         <form onSubmit={aoSalvar}>
@@ -46,11 +48,11 @@ const formulario = (props) =>{
             label="Imagem" 
             placeholder="Digite o endereço da imagem"
             valor = {imagem}
-            aoAlterado={valor => setImage(valor)}/>
+            aoAlterado={valor => setImagem(valor)}/>
         <ListaSuspensa 
             obrigatorio={true} 
             label="Time" 
-            itens={times}
+            itens={props.times}
             valor = {time}
             aoAlterado={valor => setTime(valor)}/>
         <Botao>
@@ -62,4 +64,4 @@ const formulario = (props) =>{
 
 }
 
-export default formulario
+export default Formulario
