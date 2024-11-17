@@ -5,18 +5,9 @@ import Botao from '../Botao'
 import { useState } from 'react'
 
 
-const formulario = () =>{
+const formulario = (props) =>{
 
-    const times = [
-        'Programação',
-        'Front-End',
-        'Data Science',
-        'Devops',
-        'UX e Design',
-        'Mobile',
-        'Inovação e Gestão'
-    ]
-
+   
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setImage] = useState('')
@@ -25,6 +16,13 @@ const formulario = () =>{
     const aoSalvar = (evento) => {
         evento.preventDefault()
         console.log('Form foi submetido')
+        props.aoColaboradorCadastrado({
+            nome,
+            cargo,
+            imagem,
+            time
+        })
+
 
     }
     return (
